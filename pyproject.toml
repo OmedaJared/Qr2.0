@@ -1,0 +1,18 @@
+[project]
+name = "qr-profesores"
+version = "1.0.1"
+description = "Sistema web de profesores, alumnos, tareas y códigos QR"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+    "Flask>=3.1,<4",
+    "flask-sqlalchemy>=3.1,<4",
+    "Werkzeug>=3.1,<4",
+    "qrcode[pil]>=8,<9",
+    "Pillow>=11,<13",
+    "typing_extensions>=4.12,<5",
+    "psycopg[binary]>=3.2,<4",
+    "waitress>=3,<4",
+]
+
+[tool.uv]
+package = false
