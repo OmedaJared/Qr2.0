@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}QR Profesores{% endblock %}
+{% block content %}
+<section class="hero">
+  <h1>Control de alumnos con códigos QR</h1>
+  <p>Registra materias, alumnos y tareas desde cualquier dispositivo.</p>
+  <div class="actions">
+    <a class="btn" href="{{ url_for('register') }}">Crear cuenta</a>
+    <a class="btn secondary" href="{{ url_for('login') }}">Iniciar sesión</a>
+  </div>
+</section>
+{% endblock %}

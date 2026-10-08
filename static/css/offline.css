@@ -1,0 +1,8 @@
+.offline-controls{display:grid;gap:14px;max-width:560px}
+.offline-controls input{width:100%}
+.offline-status{min-height:24px}
+.offline-list{display:grid;gap:16px}
+.offline-subject h2{margin-top:0}
+.offline-student{padding:12px 0;border-top:1px solid #e6eaf0}
+.scanner-video[hidden], [hidden]{display:none!important}
+.offline-results{margin-top:22px}

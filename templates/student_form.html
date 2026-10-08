@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Agregar alumno{% endblock %}
+{% block content %}
+<div class="card form-card">
+<h1>Agregar alumno</h1>
+<p>{{ subject.name }} · {{ subject.group_name }}</p>
+<form method="post">
+<label>Nombre completo<input name="full_name" required></label>
+<label>Número de control (opcional)<input name="student_number"></label>
+<button class="btn">Guardar y generar QR</button>
+</form>
+</div>
+{% endblock %}

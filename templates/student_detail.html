@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}{{ student.full_name }}{% endblock %}
+{% block content %}
+<div class="page-head">
+<div><h1>{{ student.full_name }}</h1><p>{{ student.subject.name }} · {{ student.subject.specialty }} · {{ student.subject.group_name }}</p></div>
+<div class="actions">
+<a class="btn" href="{{ url_for('assignment_new', student_id=student.id) }}">+ Nueva tarea</a>
+<a class="btn secondary" href="{{ url_for('student_print', student_id=student.id) }}">Imprimir QR</a>
+</div>
+</div>
+<div class="card">
+<h2>Historial de tareas</h2>
+{% if student.assignments %}
+<table>
+<thead><tr><th>Tarea</th><th>Estado</th><th>Calificación</th><th></th></tr></thead>
+<tbody>
+{% for a in student.assignments %}
+<tr><td>{{ a.title }}</td><td>{{ a.status }}</td><td>{{ a.grade or "—" }}</td><td><a href="{{ url_for('assignment_edit', assignment_id=a.id) }}">Editar</a></td></tr>
+{% endfor %}
+</tbody>
+</table>
+{% else %}<p>No hay tareas registradas.</p>{% endif %}
+</div>
+{% endblock %}

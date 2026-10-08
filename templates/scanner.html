@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Escanear QR{% endblock %}
+{% block content %}
+<div class="card">
+<h1>Escanear código QR</h1>
+<p>Abre la cámara con el botón. El navegador debe tener permiso para usarla.</p>
+<button id="start-scanner" class="btn" type="button">Activar cámara</button>
+<button id="stop-scanner" class="btn secondary" type="button" hidden>Detener cámara</button>
+<video id="video" class="scanner-video" autoplay playsinline></video>
+<p id="scanner-status" role="status" aria-live="polite">La cámara todavía no está activada.</p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
+<script src="{{ url_for('static', filename='js/scanner.js') }}" defer></script>
+{% endblock %}

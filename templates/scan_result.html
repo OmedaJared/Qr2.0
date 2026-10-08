@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Alumno{% endblock %}
+{% block content %}
+<div class="card">
+<h1>{{ student.full_name }}</h1>
+<p><strong>Materia:</strong> {{ student.subject.name }}</p>
+<p><strong>Especialidad:</strong> {{ student.subject.specialty }}</p>
+<p><strong>Grupo:</strong> {{ student.subject.group_name }}</p>
+{% if current_teacher and current_teacher.id == student.subject.teacher_id %}
+<a class="btn" href="{{ url_for('student_detail', student_id=student.id) }}">Ver historial y registrar tarea</a>
+{% else %}
+<p>Inicia sesión como el profesor correspondiente para administrar este alumno.</p>
+<a class="btn" href="{{ url_for('login', next=url_for('student_public', token=student.qr_token)) }}">Iniciar sesión</a>
+{% endif %}
+</div>
+{% endblock %}

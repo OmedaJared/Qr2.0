@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Materias{% endblock %}
+{% block content %}
+<div class="page-head">
+<h1>Mis materias</h1>
+<a class="btn" href="{{ url_for('subject_new') }}">+ Nueva materia</a>
+</div>
+{% if subjects %}
+<div class="grid">
+{% for subject in subjects %}
+<div class="card">
+<h2>{{ subject.name }}</h2>
+<p><strong>Especialidad:</strong> {{ subject.specialty }}</p>
+<p><strong>Grupo:</strong> {{ subject.group_name }}</p>
+<p>{{ subject.students|length }} alumno(s)</p>
+<a class="btn secondary" href="{{ url_for('subject_detail', subject_id=subject.id) }}">Abrir</a>
+</div>
+{% endfor %}
+</div>
+{% else %}
+<div class="card"><p>Aún no tienes materias.</p></div>
+{% endif %}
+{% endblock %}

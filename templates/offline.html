@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#172033">
+  <link rel="manifest" href="{{ url_for('static', filename='manifest.webmanifest') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/offline.css') }}">
+  <title>Modo sin conexión · QR Profesores</title>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="/">QR Profesores</a>
+  <span>Modo sin conexión</span>
+</header>
+<main class="container">
+  <section class="card">
+    <h1>Modo sin conexión</h1>
+    <p>Guarda una copia cifrada para consultar materias, alumnos y sus QR en este dispositivo.</p>
+    <form id="offline-form" class="offline-controls">
+      <label for="offline-password">Contraseña de tu cuenta</label>
+      <input id="offline-password" type="password" autocomplete="current-password" required>
+      <div class="actions">
+        <button class="btn" type="submit" name="action" value="unlock">Desbloquear copia</button>
+        <button class="btn secondary" type="submit" name="action" value="sync">Actualizar copia offline</button>
+      </div>
+    </form>
+    <p id="offline-status" class="offline-status" role="status" aria-live="polite"></p>
+    <p id="offline-updated"></p>
+  </section>
+  <section class="card">
+    <h2>Escanear QR sin conexión</h2>
+    <p>El alumno debe estar incluido en la última copia sincronizada.</p>
+    <button id="start-offline-scan" class="btn secondary" type="button">Abrir cámara</button>
+    <video id="offline-video" class="scanner-video" autoplay playsinline hidden></video>
+    <p id="offline-scan-status" role="status" aria-live="polite"></p>
+    <div id="offline-scan-result" class="offline-results"></div>
+  </section>
+  <section id="offline-list" class="offline-list" aria-live="polite"></section>
+</main>
+<script src="{{ url_for('static', filename='js/pwa.js') }}" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
+<script src="{{ url_for('static', filename='js/offline.js') }}" defer></script>
+</body>
+</html>

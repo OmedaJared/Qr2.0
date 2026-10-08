@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Tarea{% endblock %}
+{% block content %}
+<div class="card form-card">
+<h1>{{ "Editar tarea" if assignment else "Nueva tarea" }}</h1>
+<p>{{ student.full_name }}</p>
+<form method="post">
+<label>Título<input name="title" value="{{ assignment.title if assignment else '' }}" required></label>
+<label>Descripción<textarea name="description">{{ assignment.description if assignment else '' }}</textarea></label>
+<label>Estado
+<select name="status">
+{% for status in ["Pendiente","Entregada","Revisada"] %}
+<option {% if assignment and assignment.status == status %}selected{% endif %}>{{ status }}</option>
+{% endfor %}
+</select>
+</label>
+<label>Calificación<input name="grade" value="{{ assignment.grade if assignment else '' }}"></label>
+<label>Notas<textarea name="notes">{{ assignment.notes if assignment else '' }}</textarea></label>
+<button class="btn">Guardar</button>
+</form>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Nueva materia{% endblock %}
+{% block content %}
+<div class="card form-card">
+<h1>Nueva materia</h1>
+<form method="post">
+<label>Materia<input name="name" required></label>
+<label>Especialidad<input name="specialty" required></label>
+<label>Grupo<input name="group_name" required></label>
+<button class="btn">Guardar</button>
+</form>
+</div>
+{% endblock %}

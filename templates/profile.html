@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Perfil{% endblock %}
+{% block content %}
+<div class="card form-card">
+<h1>Perfil</h1>
+<form method="post">
+<label>Nombre completo<input name="full_name" value="{{ teacher.full_name }}" required></label>
+<label>Correo<input value="{{ teacher.email }}" disabled></label>
+<button class="btn">Guardar cambios</button>
+</form>
+</div>
+{% endblock %}

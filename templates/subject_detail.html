@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}{{ subject.name }}{% endblock %}
+{% block content %}
+<div class="page-head">
+<div><h1>{{ subject.name }}</h1><p>{{ subject.specialty }} · Grupo {{ subject.group_name }}</p></div>
+<a class="btn" href="{{ url_for('student_new', subject_id=subject.id) }}">+ Agregar alumno</a>
+</div>
+<div class="card">
+{% if subject.students %}
+<table>
+<thead><tr><th>Alumno</th><th>No. control</th><th>Acciones</th></tr></thead>
+<tbody>
+{% for student in subject.students %}
+<tr>
+<td>{{ student.full_name }}</td>
+<td>{{ student.student_number or "—" }}</td>
+<td><a href="{{ url_for('student_detail', student_id=student.id) }}">Ver</a> · <a href="{{ url_for('student_print', student_id=student.id) }}">Imprimir QR</a></td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% else %}<p>No hay alumnos registrados.</p>{% endif %}
+</div>
+{% endblock %}

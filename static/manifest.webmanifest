@@ -1,0 +1,19 @@
+{
+  "name": "QR Profesores",
+  "short_name": "QR Profesores",
+  "description": "Consulta materias y alumnos, también sin conexión.",
+  "lang": "es",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f4f7fb",
+  "theme_color": "#172033",
+  "icons": [
+    {
+      "src": "/static/icons/app.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

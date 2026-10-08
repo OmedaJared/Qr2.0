@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>QR - {{ student.full_name }}</title>
+<style>
+body{font-family:Arial,sans-serif;margin:0;padding:30px;text-align:center}
+.card{max-width:500px;margin:auto;border:2px solid #111;border-radius:18px;padding:28px}
+img{width:280px;height:280px}
+h1{margin-bottom:8px}.muted{color:#555}
+@media print{button{display:none}}
+</style>
+</head>
+<body>
+<div class="card">
+<h1>{{ student.full_name }}</h1>
+<p>{{ student.subject.name }}</p>
+<p>{{ student.subject.specialty }} · Grupo {{ student.subject.group_name }}</p>
+{% if student.student_number %}<p>No. control: {{ student.student_number }}</p>{% endif %}
+<img src="{{ url_for('student_qr', student_id=student.id) }}" alt="Código QR">
+<p class="muted">Escanea este código para identificar al alumno.</p>
+<button onclick="window.print()">Imprimir</button>
+</div>
+</body>
+</html>
